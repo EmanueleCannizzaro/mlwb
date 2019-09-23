@@ -1,6 +1,8 @@
 # mlwb
 Machine Learning Work Bench
 
+forked from AdilKh4n/MachineLearningPlayground
+
 <h2> Description </h2>
 
 This is the local version of the cloud based application that provides a unified platform for building Machine Learning models. It is a web application that exposes scikit-learn library as a service. It serves as an interactive platform for parameter tuning, feature selection and model evaluation.
