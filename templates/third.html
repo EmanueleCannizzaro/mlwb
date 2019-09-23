@@ -1,0 +1,244 @@
+<html>
+    <title> ML Playground </title>
+  <head>
+    <style>
+      
+      h1 {
+        
+            color: #2e484c;
+            font-family: 'Trebuchet MS';
+            font-size: 1.8em;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-family: 'Helvetica';
+            font-size: 1.4em;
+        
+        }
+
+  hr.line-orange-center {
+              border: 0;
+              height: 3px;
+              background-color: #809fff;
+              width: 1200px;}
+ 
+  hr.line-orange {
+              border: 0;
+              height: 3px;
+              background-color: orange;
+              width: 1200px;}
+  
+  p {
+      font: "Libre Baskerville", sans-serif;
+      text-align: justify;
+      text-justify: inter-word;
+      width: 100%;
+      max-width: 1000;
+      font-size: 1.2em;
+  }
+  
+ 
+
+  input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 90px;  
+    background: url(https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/MS_Office_Upload_Center.png) 96% / 15% no-repeat #eee;
+}
+
+.custom-file-upload:hover, .custom-file-upload:active {
+  background-color: #bfbfbf;
+  color: white;
+}
+
+.button {
+    position: relative;
+    background-color: #009933;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 175px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.button:hover{
+  background-color:#4CAF50 ;
+  color: white;
+}
+</style>
+  </head>
+  <body style="margin:30px;padding:0">
+    
+    
+    <h1>Welcome to Machine Learning Playground</h1>
+
+    <hr class="line-orange-center">    
+    
+    <h2>Upload your CSV:</h2>
+
+  
+    <form method="POST" action="http://127.0.0.1:5000/letsplay_regression" enctype=multipart/form-data> 
+      
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Choose File 
+        </label>
+        <input id="file-upload" type="file" id="file-input" name="file-input" accept=".csv"/>
+        <br><br>
+        <div id="file-upload-filename"></div>
+        <h2>Choose your algorithm:</h2>
+    <select id="algo" name="algo">
+      <option value="ll">Linear Regression</option>
+      <option value="rdg">Ridge Regression</option>
+    </select>
+    <br><br>
+    <input type="submit" class="button" value="Let's do this!" id="subm">
+
+    <br>
+    <br>
+    <br>
+    <hr>
+
+    
+    <h2>Instructions:</h2>
+    <ul>
+      <li>Please make sure that you are using a CSV file which is prepared to undergo machine learning training.</li>
+      <li>Format the data to make it consistent. Re-scale the data if needed. 
+      <li>Since data cleaning is not included in the application, make sure you clean the data by using Pandas and sklearn libraries.
+      <li>Please arrange the CSV such that the target feature is the first column of the CSV. The application is designed to read the CSV such that the target feature is followed by all the other features.
+        
+</ul>
+
+<a href="/"> Go Back! </a>
+  </form> 
+ 
+
+    <script>
+
+    /*
+      Function to carry out the actual POST request to S3 using the signed request from the Python app.
+    */
+    function uploadFile(file, s3Data, url){
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', s3Data.url);
+      xhr.setRequestHeader('x-amz-acl', 'public-read');
+
+      const postData = new FormData();
+      for(key in s3Data.fields){
+        postData.append(key, s3Data.fields[key]);
+      }
+      postData.append('file', file);
+
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4){
+          if(xhr.status === 200 || xhr.status === 204){
+            /* document.getElementById('preview').src = url;
+            document.getElementById('avatar-url').value = url; */
+            alert('File uploaded successfully!');
+            document.getElementById('subm').disabled = false;
+            //document.getElementById('algo').disabled = false;
+            //nextpagefile(file);
+          }
+          else{
+            alert('Could not upload file.');
+          }
+        }
+      };
+      xhr.send(postData);
+    }
+
+
+    /*
+      Function to get the temporary signed request from the Python app.
+      If request successful, continue to upload the file using this signed
+      request.
+    */
+    function getSignedRequest(file){
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            const response = JSON.parse(xhr.responseText);
+            uploadFile(file, response.data, response.url);
+          }
+          else{
+            alert('Could not get signed URL.');
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    /*
+       Function called when file input updated. If there is a file selected, then
+       start upload procedure by asking for a signed request from the app.
+    */
+    function initUpload(){
+      const files = document.getElementById('file-input').files;
+      const file = files[0];
+      if(!file){
+        return alert('No file selected.');
+      }
+      getSignedRequest(file);
+    }
+
+    /*
+       Bind listeners when the page loads.
+    */
+/*     (() => {
+      document.getElementById('file-input').onchange = initUpload;
+    })(); */
+
+    (() => {
+      document.getElementById('file-upload').onchange = uploadDone;
+    })(); 
+
+    function uploadDone(){
+      var input = document.getElementById('file-upload');
+      var infoArea = document.getElementById('file-upload-filename');
+
+  var input = event.srcElement;
+  
+  // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+  var fileName = input.files[0].name;
+  
+  // use fileName however fits your app best, i.e. add it into a div
+    infoArea.textContent = 'Selected File: ' + fileName;
+      //document.getElementsByClassName('custom-file-upload').disabled = true;
+      //document.getElementById('file-upload').disabled = true;
+      alert('File uploaded successfully!');
+    }
+    </script>
+  </body>
+</html>

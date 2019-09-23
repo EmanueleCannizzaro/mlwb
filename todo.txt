@@ -1,0 +1,18 @@
+Issues:
+SVM algos crashes the system.
+RF - No. of estimators - ValueError("n_estimators must be an integer, got <class 'float'>.",)
+
+
+To Dos:
+Delete CSV from S3 after session exit.
+Done - Make requirements for CSV Upload.
+Done - Display Target feature name.
+Done - Add note at the start of bokeh server to show the k best features results.
+https://www.kaggle.com/c/ames-housing-data/data
+Look for functions to compute & plot validated loss - MSE, Entropy loss
+
+Come up with a local version
+Add custom CSV's to the application
+18th - 12 to 2 or after 3
+
+Background image on index.html

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <title> ML Playground </title>
+  <head>
+    <style>
+
+.button {
+    position: relative;
+    background-color: #009933;
+    border: none;
+    font-size: 10px;
+    color: #FFFFFF;
+    width:70px;
+    height:20px;
+    right:0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin:10px;
+}
+a.quit{
+  position:absolute;
+  right:40px;
+}
+
+hr.line-orange-center {
+    border: 0;
+    height: 3px;
+    background-color: #f57e3a;
+    width: 1225px;
+    }
+
+h1 {
+    color: #2e484c;
+    font-family: 'Trebuchet MS';
+    font-size: 1.8em;
+    text-transform: uppercase;
+    margin-left:10px;
+    }
+
+  .button:disabled{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+</style>
+      
+      <form method="POST" action="http://127.0.0.1:5000/nextpage_classification" enctype=multipart/form-data> 
+
+      <select id="algo" name="algo" style="margin-left:10px">
+          <option value="" selected disabled hidden>Choose a different algorithm</option>
+          <option value="rf">Random Forest</option>
+          <option value="svm">SVM</option>
+          <option value="sgd">Stochastic Gradient Descent</option>
+          <option value="mlp">Multi Layer Perceptron</option>
+          <option value="knn">K Nearest Neighbors</option>
+          <option value="dt">Decision Trees</option>
+          <option value="gbc">Gradient Boosting Classifier</option>
+          <option value="nb">Naive Bayes</option>
+          <option value="lr">Logistic Regression</option>
+        </select>
+        <input type="submit" class="button" value="Go" id="subm" disabled="true">
+        <a class="quit" href="{{ url_for('classification') }}"> Quit Session </a> 
+      </form> 
+      
+
+    <title>ML Playground</title>
+  </head>
+  <body>
+      <h1>An Interactive Explorer for Machine Learning datasets</h1>
+      <hr class="line-orange-center">
+            
+ {{bokeh_script|safe}}
+ <script>
+   (() => {
+      document.getElementById('algo').onchange = enableButton;
+    })(); 
+
+    function enableButton(){
+      document.getElementById('subm').disabled = false;
+    }
+
+    </script>
+  </body>
+</html>
