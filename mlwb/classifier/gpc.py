@@ -1,5 +1,4 @@
-from os.path import dirname, join
-
+import os
 import numpy as np
 import pandas as pd
 import pandas.io.sql as psql
@@ -44,7 +43,8 @@ Prepared by <b>Adil Khan</b>.
 #df = pd.read_csv(obj['Body'])
 
 #df = pd.read_csv('/Users/adilkhan/Documents/CS Fall 16/CS297/Bokeh-Demo/EmbedWebsite/cancer.csv')
-df = pd.read_csv('http://s3.amazonaws.com/cs297-mlplayground/'+datasetname)
+#df = pd.read_csv('http://s3.amazonaws.com/cs297-mlplayground/'+datasetname)
+df = pd.read_csv(os.path.join('..', 'data', datasetname))
 
 y = df[df.columns[:1]].values.ravel()
 df1 = df.drop(df.columns[:1],axis=1)

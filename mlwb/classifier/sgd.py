@@ -1,5 +1,4 @@
-from os.path import dirname, join
-
+import os
 import numpy as np
 import pandas as pd
 import pandas.io.sql as psql
@@ -27,7 +26,7 @@ args = curdoc().session_context.request.arguments
 datasetname = str(args.get('dsname')[0].decode('utf-8'))
 #atasetname = "churn.csv"
 print("Dataset name is " + datasetname)
-df = pd.read_csv(datasetname)
+df = pd.read_csv(os.path.join('..', 'data', datasetname))
 
 desc = Div(text="""
 <h2 style="font-family="Arial">

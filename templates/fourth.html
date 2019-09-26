@@ -1,55 +1,14 @@
 <!DOCTYPE html>
-<html>
-    <title> ML Playground </title>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <title>ML WorkBench</title>
     <style>
-
-.button {
-    position: relative;
-    background-color: #009933;
-    border: none;
-    font-size: 10px;
-    color: #FFFFFF;
-    width:70px;
-    height:20px;
-    right:0;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-    margin:10px;
-}
-a.quit{
-  position:absolute;
-  right:40px;
-}
-
-hr.line-orange-center {
-    border: 0;
-    height: 3px;
-    background-color: #f57e3a;
-    width: 1225px;
-    }
-
-h1 {
-    color: #2e484c;
-    font-family: 'Trebuchet MS';
-    font-size: 1.8em;
-    text-transform: uppercase;
-    margin-left:10px;
-    }
-
-  .button:disabled{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
-
-</style>
-      
-      <form method="POST" action="http://127.0.0.1:5000/nextpage_regression" enctype=multipart/form-data> 
-
+      {% include 'styles.css' %}
+    </style>
+  </head>
+  <body>
+      <form method="POST" action="http://127.0.0.1:5000/nextpage_regression" enctype=multipart/form-data>
         <select id="algo" name="algo">
           <option value="" selected disabled hidden>Choose a different algorithm</option>
           <option value="ll">Linear Regression</option>
@@ -58,24 +17,19 @@ h1 {
         <input type="submit" class="button" value="Go" id="subm" disabled="true">
         <a class="quit" href="{{ url_for('regression') }}"> Quit Session </a> 
       </form> 
-      
-
-    <title>ML Playground</title>
-  </head>
-  <body>
       <h1>An Interactive Explorer for Machine Learning datasets</h1>
       <hr class="line-orange-center">
-            
  {{bokeh_script|safe}}
+    <script>
+      {% include 'scripts.js' %}
+    </script>
  <script>
-   (() => {
-      document.getElementById('algo').onchange = enableButton;
-    })(); 
-
-    function enableButton(){
-      document.getElementById('subm').disabled = false;
-    }
-
+        /*
+           Bind listeners when the page loads.
+        */
+         (() => {
+            document.getElementById('algo').onchange = enableButton;
+          })();
     </script>
   </body>
 </html>

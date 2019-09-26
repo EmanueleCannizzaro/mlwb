@@ -1,5 +1,4 @@
-from os.path import dirname, join
-
+import os
 import numpy as np
 import pandas as pd
 import pandas.io.sql as psql
@@ -36,7 +35,7 @@ Select the features to be included in the Decision Tree model
 """,width=1100)
 
 
-df = pd.read_csv(datasetname)
+df = pd.read_csv(os.path.join('..', 'data', datasetname))
 
 y = df[df.columns[:1]].values.ravel()
 df1 = df.drop(df.columns[:1],axis=1)

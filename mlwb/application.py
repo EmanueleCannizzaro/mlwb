@@ -14,11 +14,11 @@ app.secret_key = 'AWEDSDOLASJ'
 
 bokeh_process = subprocess.Popen(
     ['bokeh', 'serve', '--allow-websocket-origin=127.0.0.1:5000',
-        'classifier/dt.py', 'classifier/gbc.py', 'classifier/knn.py',
-        'classifier/lr.py', 'classifier/mlp.py', 'classifier/rf.py',
-        'classifier/sgd.py',
-        'regressor/ll.py', 'regressor/nb.py', 'regressor/rdg.py',
-        'regressor/svm.py'])
+     'classifier/dt.py', 'classifier/gbc.py', 'classifier/gpc.py',
+     'classifier/kmeans.py', 'classifier/knn.py', 'classifier/lr.py',
+     'classifier/mlp.py', 'classifier/nb.py', 'classifier/rf.py',
+     'classifier/sgd.py', 'classifier/svm.py',
+     'regressor/ll.py', 'regressor/rdg.py'])
 
 def main():
     port = int(os.environ.get('PORT', 5000))

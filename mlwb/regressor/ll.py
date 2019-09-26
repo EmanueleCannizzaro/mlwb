@@ -1,6 +1,4 @@
-#from os.path import dirname, join
 import os
-
 import numpy as np
 import pandas as pd
 import pandas.io.sql as psql

@@ -1,55 +1,14 @@
-<title> ML Playground </title>
-  <style>
-    
-h1 {
-
-    color: #2e484c;
-    font-family: 'Trebuchet MS';
-    font-size: 1.8em;
-    text-transform: uppercase;
-}
-h2 {
-    font-family: 'Helvetica';
-    font-size: 1.2em;
-
-}
-hr.line-orange-center {
-            border: 0;
-            height: 3px;
-            background-color: #809fff;
-            width: 1200px;}
-
-p {
-    font: "Libre Baskerville", sans-serif;
-    text-align: justify;
-    text-justify: inter-word;
-    width: 100%;
-    max-width: 1000;
-    font-size: 1.2em;
-}
-
-a:link {
-    font-weight: bold;
-    text-decoration: none;
-    border: 2px solid green;
-    color: black;
-    background-color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: "Palatino"
-}
-a:hover, a:active {
-  background-color: green;
-  color: white;
-}
-
-
-</style>
-<body style="margin:30px;padding:0">
-<h1>Welcome to Machine Learning Playground</h1>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ML WorkBench</title>
+    <style>
+      {% include 'styles.css' %}
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Machine Learning Playground</h1>
     <hr class="line-orange-center">
     <h2>What do you want to do? </h2>
     <p><a href="{{ url_for('classification') }}">Classification</a></p>
@@ -57,5 +16,5 @@ a:hover, a:active {
     <br>
     <p><a href="{{ url_for('regression') }}">Regression</a></p>
     <p>Predict continuous values based on the relationship of the target and predictor values.</p>
-
-</body>
+  </body>
+</html>
