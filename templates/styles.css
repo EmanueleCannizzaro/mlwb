@@ -1,253 +1,30 @@
 
-      h1 {
-
-            color: #2e484c;
-            font-family: 'Trebuchet MS';
-            font-size: 1.8em;
-            text-transform: uppercase;
-        }
-        h2 {
-            font-family: 'Helvetica';
-            font-size: 1.4em;
-
-        }
-
-  hr.line-orange-center {
-              border: 0;
-              height: 3px;
-              background-color: #809fff;
-              width: 1200px;}
-
-  hr.line-orange {
-              border: 0;
-              height: 3px;
-              background-color: orange;
-              width: 1200px;}
-
-  p {
-      font: "Libre Baskerville", sans-serif;
-      text-align: justify;
-      text-justify: inter-word;
-      width: 100%;
-      max-width: 1000;
-      font-size: 1.2em;
-  }
-
-
-
-  input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    width: 90px;
-    background: url(https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/MS_Office_Upload_Center.png) 96% / 15% no-repeat #eee;
-}
-
-.custom-file-upload:hover, .custom-file-upload:active {
-  background-color: #bfbfbf;
-  color: white;
-}
-
-.button {
-    position: relative;
-    background-color: #009933;
-    border: none;
-    font-size: 10px;
-    color: #FFFFFF;
-    width:70px;
-    height:20px;
-    right:0;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-    margin:10px;
-}
-a.quit{
-  position:absolute;
-  right:40px;
-}
-
-hr.line-orange-center {
-    border: 0;
-    height: 3px;
-    background-color: #f57e3a;
-    width: 1225px;
-    }
-
 h1 {
     color: #2e484c;
     font-family: 'Trebuchet MS';
     font-size: 1.8em;
     text-transform: uppercase;
     margin-left:10px;
-    }
-
-  .button:disabled{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
 }
 
-
-
-.button {
-    position: relative;
-    background-color: #009933;
-    border: none;
-    font-size: 20px;
-    color: #FFFFFF;
-    padding: 10px;
-    width: 175px;
-    text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.button:after {
-    content: "";
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-}
-
-.button:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-
-.button:hover{
-  background-color:#4CAF50 ;
-  color: white;
-}
-
-      h1 {
-
-            color: #2e484c;
-            font-family: 'Trebuchet MS';
-            font-size: 1.8em;
-            text-transform: uppercase;
-        }
-        h2 {
-            font-family: 'Helvetica';
-            font-size: 1.4em;
-
-        }
-
-  hr.line-orange-center {
-              border: 0;
-              height: 3px;
-              background-color: #809fff;
-              width: 1200px;}
-
-  hr.line-orange {
-              border: 0;
-              height: 3px;
-              background-color: orange;
-              width: 1200px;}
-
-  p {
-      font: "Libre Baskerville", sans-serif;
-      text-align: justify;
-      text-justify: inter-word;
-      width: 100%;
-      max-width: 1000;
-      font-size: 1.2em;
-  }
-
-
-
-  input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    width: 90px;
-    background: url(https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/MS_Office_Upload_Center.png) 96% / 15% no-repeat #eee;
-}
-
-.custom-file-upload:hover, .custom-file-upload:active {
-  background-color: #bfbfbf;
-  color: white;
-}
-
-.button {
-    position: relative;
-    background-color: #009933;
-    border: none;
-    font-size: 20px;
-    color: #FFFFFF;
-    padding: 10px;
-    width: 175px;
-    text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.button:after {
-    content: "";
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-}
-
-.button:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-
-.button:hover{
-  background-color:#4CAF50 ;
-  color: white;
-}
-
-
-h1 {
-    color: #2e484c;
-    font-family: 'Trebuchet MS';
-    font-size: 1.8em;
-    text-transform: uppercase;
-}
 h2 {
     font-family: 'Helvetica';
-    font-size: 1.2em;
-
+    font-size: 1.4em;
 }
+
 hr.line-orange-center {
-            border: 0;
-            height: 3px;
-            background-color: #809fff;
-            width: 1200px;}
+    border: 0;
+    height: 3px;
+    background-color: #809fff;
+    width: 1200px;
+}
+
+hr.line-orange {
+    border: 0;
+    height: 3px;
+    background-color: orange;
+    width: 1200px;
+}
 
 p {
     font: "Libre Baskerville", sans-serif;
@@ -258,9 +35,20 @@ p {
     font-size: 1.2em;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+a:active, a:focus, a:hover  {
+    text-decoration: underline;
+    background-color: green;
+    color: white;
+}
+
 a:link {
     font-weight: bold;
     text-decoration: none;
+    color: #0d8ba1;
     border: 2px solid green;
     color: black;
     background-color: white;
@@ -270,55 +58,26 @@ a:link {
     display: inline-block;
     font-family: "Palatino"
 }
-a:hover, a:active {
-  background-color: green;
-  color: white;
-}
 
-
-h1 {
-    margin: 1em 0 0 0;
-    color: #2e484c;
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 1.8em;
-    text-transform: uppercase;
-}
-a:link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #0d8ba1;
-}
 a:visited {
     font-weight: bold;
     text-decoration: none;
     color: #1a5952;
 }
-a:hover, a:focus, a:active {
-    text-decoration: underline;
-    color: #9685BA;
-}
-p {
-    font: "Libre Baskerville", sans-serif;
-    text-align: justify;
-    text-justify: inter-word;
-    width: 80%;
-    max-width: 800;
-}
 
-hr.line-orange-center {
-            border: 0;
-            height: 3px;
-            background-color: #f57e3a;
-            width: 1100px;}
+a.quit{
+    position:absolute;
+    right:40px;
+}
 
 .button {
     position: relative;
     background-color: #009933;
     border: none;
-    font-size: 10px;
+    font-size: 20px;
     color: #FFFFFF;
-    width:70px;
-    height:20px;
+    width:175px;
+    height:40px;
     right:0;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -326,29 +85,54 @@ hr.line-orange-center {
     overflow: hidden;
     cursor: pointer;
     margin:10px;
+    padding: 10px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
 }
-a.quit{
-  position:absolute;
-  right:40px;
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
 
-hr.line-orange-center {
-    border: 0;
-    height: 3px;
-    background-color: #f57e3a;
-    width: 1225px;
-    }
+.button:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
 
-h1 {
-    color: #2e484c;
-    font-family: 'Trebuchet MS';
-    font-size: 1.8em;
-    text-transform: uppercase;
-    margin-left:10px;
-    }
+.button:disabled{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
 
-  .button:disabled{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+.button:hover{
+    background-color:#4CAF50 ;
+    color: white;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 90px;
+    background: url(https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/MS_Office_Upload_Center.png) 96% / 15% no-repeat #eee;
+}
+
+.custom-file-upload:active, .custom-file-upload:hover {
+    background-color: #bfbfbf;
+    color: white;
 }
