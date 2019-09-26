@@ -9,17 +9,19 @@
   </head>
   <body>
       <form method="POST" action="http://127.0.0.1:5000/nextpage_classification" enctype=multipart/form-data>
-      <select id="algo" name="algo" style="margin-left:10px">
+      <select id="algo" name="algo">
           <option value="" selected disabled hidden>Choose a different algorithm</option>
-          <option value="rf">Random Forest</option>
-          <option value="svm">SVM</option>
-          <option value="sgd">Stochastic Gradient Descent</option>
-          <option value="mlp">Multi Layer Perceptron</option>
-          <option value="knn">K Nearest Neighbors</option>
           <option value="dt">Decision Trees</option>
           <option value="gbc">Gradient Boosting Classifier</option>
-          <option value="nb">Naive Bayes</option>
+          <option value="gpc">Gradient P Classifier</option>
+          <option value="kmeans">K Means</option>
+          <option value="knn">K Nearest Neighbors</option>
           <option value="lr">Logistic Regression</option>
+          <option value="mlp">Multi Layer Perceptron</option>
+          <option value="nb">Naive Bayes</option>
+          <option value="rf">Random Forest</option>
+          <option value="sgd">Stochastic Gradient Descent</option>
+          <option value="svm">SVM</option>
         </select>
         <input type="submit" class="button" value="Go" id="subm" disabled="true">
         <a class="quit" href="{{ url_for('classification') }}"> Quit Session </a> 

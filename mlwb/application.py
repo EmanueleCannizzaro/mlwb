@@ -40,14 +40,14 @@ def account():
 def classification():
     if request.method == 'POST':
         return redirect(url_for('index'))
-    return render_template('first.html')
+    return render_template('classification.html')
 
 
 @app.route('/regression', methods=['GET', 'POST'])
 def regression():
     if request.method == 'POST':
         return redirect(url_for('index'))
-    return render_template('third.html') 
+    return render_template('regression.html')
 
 #
 @app.route("/letsplay_classification", methods=['POST'])
@@ -61,7 +61,7 @@ def play():
         dict = {'dsname': fname}
         session['dsname'] = fname
         bokeh_script=server_document(url="http://127.0.0.1:5006/"+selected_algo,arguments=dict)
-        return render_template('second.html',bokeh_script=bokeh_script,dsname=fname)
+        return render_template('classification_dashboard.html',bokeh_script=bokeh_script,dsname=fname)
 
 
 @app.route("/nextpage_classification", methods=['POST'])
@@ -72,7 +72,7 @@ def nxtpage():
         dsname = session.get('dsname', None)
         dict = {'dsname': dsname}
         bokeh_script=server_document(url="http://127.0.0.1:5006/"+selected_algo,arguments=dict)
-        return render_template('second.html',bokeh_script=bokeh_script)
+        return render_template('classification_dashboard.html',bokeh_script=bokeh_script)
 
 
 @app.route("/letsplay_regression", methods=['POST'])
@@ -86,7 +86,7 @@ def play_reg():
         dict = {'dsname': fname}
         session['dsname'] = fname
         bokeh_script=server_document(url="http://127.0.0.1:5006/"+selected_algo,arguments=dict)
-        return render_template('fourth.html',bokeh_script=bokeh_script,dsname=fname)
+        return render_template('regression_dashboard.html',bokeh_script=bokeh_script,dsname=fname)
 
 @app.route("/nextpage_regression", methods=['POST'])
 def nxtpage_reg():
@@ -96,7 +96,7 @@ def nxtpage_reg():
         dsname = session.get('dsname', None)
         dict = {'dsname': dsname}
         bokeh_script = server_document(url="http://127.0.0.1:5006/{}".format(selected_algo), arguments=dict)
-        return render_template('fourth.html', bokeh_script=bokeh_script)
+        return render_template('regression_dashboard.html', bokeh_script=bokeh_script)
 
 
 @app.route('/sign-s3/')
